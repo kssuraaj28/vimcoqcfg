@@ -1,1 +1,2 @@
-imap <buffer> <leader>; <Plug>RocqToLine
+"TODO: Maybe make these buffer local plugins?
+imap <leader>; <Plug>RocqToLine
