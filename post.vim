@@ -1,15 +1,16 @@
 " TODO: The things which I would like to have in coq - Nice infix operators
 
 function! s:bind_input(key, result)
-    let str = "<buffer> " . l:cornelis_agda_prefix . substitute(a:key, "|", "<bar>", "g") . " " . a:result
+    let l:prefix = '\'
+    let str = "<buffer> " . l:prefix . substitute(a:key, "|", "<bar>", "g") . " " . a:result
 
     exec "silent inoremap" . str
     exec "silent cnoremap" . str
 endfunction
 
 function! s:bind_inputs()
-    call bind_input("[[", "⟦")
-    call bind_input("]]", "⟧")
+    call s:bind_input("[[", "⟦")
+    call s:bind_input("]]", "⟧")
 endfunction
 
 function s:CoqMaps()
