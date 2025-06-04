@@ -11,6 +11,8 @@ endfunction
 function! s:bind_inputs()
     call s:bind_input("[[", "⟦")
     call s:bind_input("]]", "⟧")
+    call s:bind_input("top", "⊤")
+    call s:bind_input("bot", "⊥")
 endfunction
 
 function s:CoqMaps()
