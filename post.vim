@@ -9,6 +9,7 @@ function! s:bind_input(key, result)
 endfunction
 
 function! s:bind_inputs()
+    call s:bind_input("cmt", "(* *)")  " I would like to have this be a snippet. Or add a textobject
     call s:bind_input("[[", "⟦")
     call s:bind_input("]]", "⟧")
     call s:bind_input("top", "⊤")
