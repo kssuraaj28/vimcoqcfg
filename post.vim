@@ -1,4 +1,5 @@
 " TODO: The things which I would like to have in coq - Nice infix operators
+"
 
 function! s:bind_input(key, result)
     let l:prefix = '\'
@@ -29,3 +30,11 @@ endfunction
 " I don't like this too much. Ideally, I'd like to do this based on filetype.
 " Maybe an ftplugin
 au BufRead,BufNewFile *.v call s:CoqMaps()
+
+" TODO: Make sure that I put coc as a dependency..
+call coc#config('languageserver', {
+	\ 'coq': {
+	\   "command": "coq-lsp",
+	\   "filetypes": ["coq"]
+	\ }
+	\})
