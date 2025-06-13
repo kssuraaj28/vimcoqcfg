@@ -20,10 +20,12 @@ function! s:bind_inputs()
 endfunction
 
 function s:CoqMaps()
+    " I would like to have a way to just check till the next, and also move my
+    " cursor there..
   nmap <buffer> <leader>; <Plug>RocqToLine
   nmap <buffer> <leader>i <Plug>RocqInterrupt
-  nmap <buffer> <leader>k <Plug>RocqJumpToEnd 
-  nmap <buffer> <leader>j <Plug>RocqJumpToError
+  "nmap <buffer> <leader>k <Plug>RocqJumpToEnd 
+  "nmap <buffer> <leader>j <Plug>RocqJumpToError
   call s:bind_inputs()
 endfunction
 
