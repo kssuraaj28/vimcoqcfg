@@ -2,18 +2,28 @@ function s:CoqCopyInfo()
     let l:info_bufname = b:coqtail_panel_bufs.info
     " info goal main
     let l:lines = '(*'.join(getbufline(l:info_bufname, 0 , '$'),'\n').'*)'
-    let l:next = (line('.') + 1)
-    call append(l:next, l:lines)
+    let l:next = (line('.') )
+    call append(l:next, l:lines) "If you don't want to do any assign, you do this call
+endfunction
+
+function s:CoqMakeFile()
+    let l:target = fnamemodify(expand('%:t') , ':r'). '.vo'
+    let l:command = 'make '.l:target
+    echo system(l:command)
 endfunction
 
 function s:CoqMaps()
     " I would like to have a way to just check till the next, and also move my
     " cursor there..
-  nmap <buffer> <leader>i <Cmd>call <SID>CoqCopyInfo()<CR>
-  nmap <buffer> <leader>; <Plug>RocqToLine
-  nmap <buffer> <leader>x <Plug>RocqInterrupt
-  nmap <buffer> <leader>k <Plug>RocqJumpToEnd 
-  nmap <buffer> <leader>j <Plug>RocqJumpToError
+  nnoremap <buffer> <leader>i           <Cmd>call <SID>CoqCopyInfo()<CR>
+  nnoremap <buffer> <leader>m           <Cmd>call <SID>CoqMakeFile()<CR>
+  nnoremap <buffer> <leader>j           <Cmd>RocqNext<CR><Cmd>RocqJumpToEnd<CR>
+  nnoremap <buffer> <leader>k           <Cmd>RocqUndo<CR><Cmd>RocqJumpToEnd<CR>
+  nnoremap <buffer> <leader>h           <Cmd>RocqJumpToError<CR>
+  nnoremap <buffer> <leader>;           <Cmd>RocqToLine<CR>
+  nnoremap <buffer> <leader>x           <Cmd>RocqInterrupt<CR>
+  nnoremap <buffer> <leader><space>     <Cmd>only<CR><Cmd>RocqRestorePanels<CR>
+
 endfunction
 
 " I don't like this too much. Ideally, I'd like to do this based on filetype.
