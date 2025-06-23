@@ -1,8 +1,17 @@
+function s:CoqCopyInfo()
+    let l:info_bufname = b:coqtail_panel_bufs.info
+    " info goal main
+    let l:lines = '(*'.join(getbufline(l:info_bufname, 0 , '$'),'\n').'*)'
+    let l:next = (line('.') + 1)
+    call append(l:next, l:lines)
+endfunction
+
 function s:CoqMaps()
     " I would like to have a way to just check till the next, and also move my
     " cursor there..
+  nmap <buffer> <leader>i <Cmd>call <SID>CoqCopyInfo()<CR>
   nmap <buffer> <leader>; <Plug>RocqToLine
-  nmap <buffer> <leader>i <Plug>RocqInterrupt
+  nmap <buffer> <leader>x <Plug>RocqInterrupt
   nmap <buffer> <leader>k <Plug>RocqJumpToEnd 
   nmap <buffer> <leader>j <Plug>RocqJumpToError
 endfunction
@@ -10,6 +19,9 @@ endfunction
 " I don't like this too much. Ideally, I'd like to do this based on filetype.
 " Maybe an ftplugin
 au BufRead,BufNewFile *.v call s:CoqMaps()
+
+
+
 
 " TODO: Make sure that I put coc as a dependency..
 " lsp is useless. It is better to do incremental type checking
