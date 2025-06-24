@@ -21,8 +21,8 @@ function s:CoqMaps()
     " cursor there..
   nnoremap <buffer> <leader>i           <Cmd>call <SID>CoqCopyInfo()<CR>
   nnoremap <buffer> <leader>m           <Cmd>call <SID>CoqMakeFile()<CR>
-  nnoremap <buffer> <leader>j           <Cmd>RocqNext<CR><Cmd>RocqJumpToEnd<CR>
-  nnoremap <buffer> <leader>k           <Cmd>RocqUndo<CR><Cmd>RocqJumpToEnd<CR>
+  nnoremap <buffer> <leader>j           <Cmd>RocqNext<CR><Cmd>RocqJumpToEnd<CR>zz
+  nnoremap <buffer> <leader>k           <Cmd>RocqUndo<CR><Cmd>RocqJumpToEnd<CR>zz
   nnoremap <buffer> <leader>h           <Cmd>RocqJumpToError<CR>
   nnoremap <buffer> <leader>;           <Cmd>RocqToLine<CR>
   nnoremap <buffer> <leader>x           <Cmd>RocqInterrupt<CR>
