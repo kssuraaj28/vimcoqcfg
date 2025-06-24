@@ -1,9 +1,13 @@
 function s:CoqCopyInfo()
     let l:info_bufname = b:coqtail_panel_bufs.info
     " info goal main
-    let l:lines = '(*'.join(getbufline(l:info_bufname, 0 , '$'),'\n').'*)'
+    let l:lines = ['(*'] + getbufline(l:info_bufname, 0 , '$') + ['*)']
+
+    call reverse(l:lines)
     let l:next = (line('.') )
-    call append(l:next, l:lines) "If you don't want to do any assign, you do this call
+    for l:line in l:lines 
+        call append(l:next, l:line) "If you don't want to do any assign, you do this call
+    endfor
 endfunction
 
 function s:CoqMakeFile()
