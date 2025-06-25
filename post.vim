@@ -16,6 +16,12 @@ function s:CoqMakeFile()
     echo system(l:command)
 endfunction
 
+function s:CoqRestore()
+  only 
+  RocqRestorePanels 
+  execute 'vertical resize '. (&columns * 3 / 4)
+endfunction
+
 function s:CoqMaps()
     " I would like to have a way to just check till the next, and also move my
     " cursor there..
@@ -26,7 +32,7 @@ function s:CoqMaps()
   nnoremap <buffer> <leader>h           <Cmd>RocqJumpToError<CR>
   nnoremap <buffer> <leader>;           <Cmd>RocqToLine<CR>
   nnoremap <buffer> <leader>x           <Cmd>RocqInterrupt<CR>
-  nnoremap <buffer> <leader><space>     <Cmd>only<CR><Cmd>RocqRestorePanels<CR>
+  nnoremap <buffer> <leader><space>     <Cmd>call <SID>CoqRestore()<CR>
 
 endfunction
 
