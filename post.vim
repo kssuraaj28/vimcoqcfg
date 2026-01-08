@@ -15,9 +15,10 @@ function s:CoqMakeFile()
     "let l:command = 'make '.l:target
     "echo system(l:command)
     " TODO: This does not work..
+    echo system('rm *.vo')
+    echo system('rocq makefile -f _CoqProject *.v -o Makefile')
     echo system('make')
     RocqStop
-    RocqStart
 endfunction
 
 function s:CoqRestore()
@@ -59,3 +60,17 @@ au BufRead,BufNewFile *.v call s:CoqMaps()
 let s:snippets_dir = fnamemodify(resolve(expand('<sfile>:p')),':h') . '/snippets/'
 " TODO: Can I have multiple userSnippetsDirectory??
 call coc#config('snippets.userSnippetsDirectory', s:snippets_dir  )
+
+"augroup CoqtailHighlight
+"  autocmd!
+"  autocmd ColorScheme *
+"    \  hi def CoqtailChecked ctermbg=9
+"    \| hi def CoqtailSent    ctermbg=11
+"augroup END
+
+"augroup coq_quickchick_syntax
+"  autocmd!
+"  autocmd FileType coq syntax keyword coqCommand QuickChick Derive Sample
+"  autocmd FileType coq syntax keyword coqTactic forAll ==> suchThat
+"augroup END
+
