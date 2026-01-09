@@ -1,4 +1,7 @@
 Plug 'whonore/Coqtail'
+Plug 'andymass/vim-matchup'
+
+
 Plug fnamemodify(resolve(expand('<sfile>:p')),':h').'/newplug'
 
 " neovim comes with treesitter support.
