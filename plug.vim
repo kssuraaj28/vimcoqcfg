@@ -1,6 +1,7 @@
 Plug 'whonore/Coqtail'
 Plug 'andymass/vim-matchup'
-
+Plug 'tpope/vim-endwise' 
+"endwise triggers at end of file..
 
 Plug fnamemodify(resolve(expand('<sfile>:p')),':h').'/newplug'
 
