@@ -41,7 +41,6 @@ let s:rocq_lib ='~/.opam/rocq9/lib/coq'
 let s:rocq_ctag_opts ='/Users/sunny/Repos/coq.ctags/coq.ctags'
 
 let g:gutentags_ctags_options_file = s:rocq_ctag_opts
-let g:gutentags_ctags_options_file = s:rocq_ctag_opts
 "let g:gutentags_trace = 0
 "
 let g:gutentags_ctags_exclude = ["_opam"]
