@@ -36,7 +36,7 @@ let g:coqtail_panel_layout = {'info': [['goal', 'above'], ['main', 'left']], 'go
 "
 " Tags things
 let s:stdlibtags = fnamemodify(resolve(expand('<sfile>:p')),':h').'/stdlib-tags'
-let s:rocq_lib ='/Users/sunny/.opam/rocq9/lib/coq' 
+let s:rocq_lib ='~/.opam/rocq9/lib/coq' 
 "TODO: Make this a git submodule?
 let s:rocq_ctag_opts ='/Users/sunny/Repos/coq.ctags/coq.ctags'
 
@@ -58,3 +58,8 @@ execute 'set tags+='.s:stdlibtags
 
 let s:cache_dir = fnamemodify(resolve(expand('<sfile>:p')),':h').'/gutentags-cache'
 let g:gutentags_cache_dir = s:cache_dir
+
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
