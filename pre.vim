@@ -40,6 +40,10 @@ let s:rocq_lib ='~/.opam/rocq9/lib/coq'
 "TODO: Make this a git submodule?
 let s:rocq_ctag_opts = fnamemodify(resolve(expand('<sfile>:p')),':h').'coq.ctags'
 
+if ! filereadable(s:rocq_ctag_opts)
+    echom "Can't read rocq ctag"
+endif
+
 let g:gutentags_ctags_options_file = s:rocq_ctag_opts
 "let g:gutentags_trace = 0
 "
