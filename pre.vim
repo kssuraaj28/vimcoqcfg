@@ -38,7 +38,7 @@ let g:coqtail_panel_layout = {'info': [['goal', 'above'], ['main', 'left']], 'go
 let s:stdlibtags = fnamemodify(resolve(expand('<sfile>:p')),':h').'/stdlib-tags'
 let s:rocq_lib ='~/.opam/rocq9/lib/coq' 
 "TODO: Make this a git submodule?
-let s:rocq_ctag_opts ='/Users/sunny/Repos/coq.ctags/coq.ctags'
+let s:rocq_ctag_opts = fnamemodify(resolve(expand('<sfile>:p')),':h').'coq.ctags'
 
 let g:gutentags_ctags_options_file = s:rocq_ctag_opts
 "let g:gutentags_trace = 0
