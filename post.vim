@@ -74,3 +74,5 @@ call coc#config('snippets.userSnippetsDirectory', s:snippets_dir  )
 "  autocmd FileType coq syntax keyword coqTactic forAll ==> suchThat
 "augroup END
 
+"set statusline+=%{gutentags#statusline()}
+
