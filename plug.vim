@@ -5,7 +5,8 @@ Plug 'tpope/vim-endwise'
 
 Plug 'ludovicchabant/vim-gutentags'
 
-Plug fnamemodify(resolve(expand('<sfile>:p')),':h').'/newplug'
+Plug fnamemodify(resolve(expand('<sfile>:p')),':h').'/plugrt'
+" When this is made the current directory, vim shits the bed. Why?
 
 " neovim comes with treesitter support.
 " nvim-treesitter makes it easy to install parsers

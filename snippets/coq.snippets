@@ -112,12 +112,18 @@ snippet skull "Skull of death"
 ☠︎︎
 endsnippet
 
-snippet prf "Show Proof"
-Show Proof.
+snippet start "Coq starting settings"
+Set Default Goal Selector "!".
+Set Bullet Behavior "Strict Subproofs".
+Set Mangle Names. Set Mangle Names Light.
 endsnippet
 
-snippet match "Match Goal"
-match goal with 
-| [ ${0} |- _ ] => idtac
-end.
+snippet goalname "Proof mode goal names"
+ltac2:(goals [${0}]).
+endsnippet
+
+snippet holemode "Hole mode"
+Section holemode. Variable hole: forall T, T. Import Tacs.GallinaUtil.
+${0}
+End holemode.
 endsnippet
