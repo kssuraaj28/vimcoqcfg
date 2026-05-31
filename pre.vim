@@ -1,7 +1,7 @@
 let g:coqtail_nomap = 1
 let g:coqtail_noindent_comment = 1
 let g:coqtail_noindent = 1
-let g:coqtail_panel_layout = {'info': [['goal', 'above'], ['main', 'left']], 'goal': [['info', 'below'], ['main', 'left']]}
+let g:coqtail_panel_layout = {'info': [['goal', 'below'], ['main', 'left']], 'goal': [['info', 'above'], ['main', 'left']]}
 
 "let g:coqtail_tagfunc = 0
 "let g:coqtail_nosyntax = 1 
