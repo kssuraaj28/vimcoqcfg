@@ -10,17 +10,6 @@ function s:CoqCopyInfo()
     endfor
 endfunction
 
-function s:CoqMakeFile()
-    "let l:target = fnamemodify(expand('%:t') , ':r'). '.vo'
-    "let l:command = 'make '.l:target
-    "echo system(l:command)
-    " TODO: This does not work..
-    echo system('rm *.vo')
-    echo system('rocq makefile -f _CoqProject *.v -o Makefile')
-    echo system('make')
-    RocqStop
-endfunction
-
 function s:CoqRestore()
   only 
   RocqRestorePanels 
