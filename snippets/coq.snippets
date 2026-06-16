@@ -120,19 +120,21 @@ snippet skull "Skull of death"
 ☠︎︎
 endsnippet
 
+snippet squigeq "Squigly equal"
+≈
+endsnippet 
+
+snippet ssquigeq "Strong Squigly equal "
+≈ˢ
+endsnippet 
+
+snippet wsquigeq "Weak Squigly equal "
+≈ʷ
+endsnippet 
+
 snippet start "Coq starting settings"
 Set Default Proof Mode "Classic".
 Set Default Goal Selector "!".
 Set Bullet Behavior "Strict Subproofs".
 Set Mangle Names. Set Mangle Names Light.
-endsnippet
-
-snippet goalname "Proof mode goal names"
-ltac2:(goals [${0}]).
-endsnippet
-
-snippet holemode "Hole mode"
-Section holemode. Variable hole: forall T, T. Import Tacs.GallinaUtil.
-${0}
-End holemode.
 endsnippet
