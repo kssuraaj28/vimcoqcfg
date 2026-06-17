@@ -19,7 +19,6 @@ function s:CoqRestore()
 endfunction
 
 nnoremap <buffer> <leader>i           <Cmd>call <SID>CoqCopyInfo()<CR>
-nnoremap <buffer> <leader>m           <Cmd>call <SID>CoqMakeFile()<CR>
 nnoremap <buffer> <leader>j           <Cmd>RocqNext<CR><Cmd>RocqJumpToEnd<CR>
 nnoremap <buffer> <leader>k           <Cmd>RocqUndo<CR><Cmd>RocqJumpToEnd<CR>
 nnoremap <buffer> <leader>h           <Cmd>RocqJumpToError<CR>
@@ -59,9 +58,13 @@ nnoremap <buffer> <leader><space>     <Cmd>call <SID>CoqRestore()<CR>
 "
 "   Indent is a good foldmethod
 "
+
 function! CoqProofFold(lnum)
   let l = getline(a:lnum)
-  if l =~ '^\s*Proof\>'
+  " One-liner (Proof. ... Qed. on a single line): don't fold
+  if l =~ '^\s*\%(Proof\|Next Obligation\)\>.*\<\%(Qed\|Defined\|Admitted\|Abort\)\>'
+    return '='
+  elseif l =~ '^\s*\%(Proof\|Next Obligation\)\>'
     return '>1'
   elseif l =~ '^\s*\%(Qed\|Defined\|Admitted\|Abort\)\>'
     return '<1'
