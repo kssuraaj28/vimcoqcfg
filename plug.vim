@@ -1,6 +1,8 @@
 Plug 'kssuraaj28/Coqtail'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-endwise' 
+Plug 'honza/vim-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "endwise triggers at end of file..
 
 " Plug 'ludovicchabant/vim-gutentags'
