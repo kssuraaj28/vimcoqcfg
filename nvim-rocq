@@ -1,0 +1,13 @@
+#!/usr/bin/env bash 
+set -e
+
+vimrc_dir="$( cd "$( dirname "$(realpath "${BASH_SOURCE[0]}")" )" >/dev/null 2>&1 && pwd )/vimrc.d"
+
+# This is how you extend my vim configuration
+vimrclist="$EXTRA_VIMRCD:$vimrc_dir"
+
+skt=$(mktemp)
+ 
+tmux split-window -hd -l '70%' -e "EXTRA_VIMRCD=$vimrclist" nvim --listen "$skt"
+tmux split-window -vd -e "EXTRA_VIMRCD=$vimrclist" nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_info()'
+EXTRA_VIMRCD="$vimrclist" exec nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_goal()'

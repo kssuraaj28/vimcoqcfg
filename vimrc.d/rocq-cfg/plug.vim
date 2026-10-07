@@ -1,4 +1,6 @@
 Plug 'kssuraaj28/Coqtail'
+Plug 'kssuraaj28/chill.nvim'
+Plug 'kssuraaj28/mirror.nvim' " Mirror depends on chill. We do too
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-endwise' 
 Plug 'honza/vim-snippets'
