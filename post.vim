@@ -25,5 +25,3 @@ call coc#config('snippets.userSnippetsDirectory', s:snippets_dir  )
 "augroup END
 
 "set statusline+=%{gutentags#statusline()}
-"
-execute 'luafile' fnamemodify(resolve(expand('<sfile>:p')),':h') . '/coqpin.lua'
