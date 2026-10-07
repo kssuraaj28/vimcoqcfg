@@ -3,7 +3,7 @@ Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-endwise' 
 "endwise triggers at end of file..
 
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 
 Plug fnamemodify(resolve(expand('<sfile>:p')),':h').'/plugrt'
 " When this is made the current directory, vim shits the bed. Why?
