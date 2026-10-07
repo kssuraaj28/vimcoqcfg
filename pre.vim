@@ -1,7 +1,8 @@
 let g:coqtail_nomap = 1
 let g:coqtail_noindent_comment = 1
 let g:coqtail_noindent = 1
-let g:coqtail_panel_layout = {'info': [['goal', 'below'], ['main', 'left']], 'goal': [['info', 'above'], ['main', 'left']]}
+" let g:coqtail_panel_layout = {'info': [['goal', 'below'], ['main', 'left']], 'goal': [['info', 'above'], ['main', 'left']]}
+let g:coqtail_panel_layout = {'info': [], 'goal': []} " You can also :close to hide
 
 "let g:coqtail_tagfunc = 0
 "let g:coqtail_nosyntax = 1 
