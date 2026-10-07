@@ -27,4 +27,3 @@ nnoremap <buffer> <leader>h           <Cmd>RocqJumpToError<CR>
 nnoremap <buffer> <leader>;           <Cmd>RocqToLine<CR>
 nnoremap <buffer> <leader>:           <Cmd>!dune build<CR><Cmd>RocqToTop<CR><Cmd>RocqToLine<CR>
 nnoremap <buffer> <leader>x           <Cmd>RocqInterrupt<CR>
-nnoremap <buffer> <leader><space>     <Cmd>call <SID>CoqRestore()<CR>
