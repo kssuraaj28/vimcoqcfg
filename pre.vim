@@ -34,35 +34,35 @@ let g:coqtail_panel_layout = {'info': [['goal', 'below'], ['main', 'left']], 'go
 "  }
 "end})
 "
-" Tags things
-let s:stdlibtags = fnamemodify(resolve(expand('<sfile>:p')),':h').'/stdlib-tags'
-let s:rocq_lib ='~/.opam/rocq9/lib/coq' 
-"TODO: Make this a git submodule?
-let s:rocq_ctag_opts = fnamemodify(resolve(expand('<sfile>:p')),':h').'/coq.ctags'
-
-if ! filereadable(s:rocq_ctag_opts)
-    echom "Can't read rocq ctag"
-endif
-
-let g:gutentags_ctags_options_file = s:rocq_ctag_opts
-"let g:gutentags_trace = 0
+" Tags things: These always break
+"let s:stdlibtags = fnamemodify(resolve(expand('<sfile>:p')),':h').'/stdlib-tags'
+"let s:rocq_lib ='~/.opam/rocq9/lib/coq' 
+""TODO: Make this a git submodule?
+"let s:rocq_ctag_opts = fnamemodify(resolve(expand('<sfile>:p')),':h').'/coq.ctags'
 "
-let g:gutentags_ctags_exclude = ["_opam"]
-
-" I feel like these pre files are being read multiple times. Why?
-
-if ! filereadable(s:stdlibtags)
-    let s:cmd = "find '". s:rocq_lib. "' -name '*.v' | ctags -L - -f '". s:stdlibtags ."' --options='". s:rocq_ctag_opts ."'"
-    call system(s:cmd)
-endif
-
-execute 'set tags+='.s:stdlibtags
-" Use ctrl-] to go to definition
-
-let s:cache_dir = fnamemodify(resolve(expand('<sfile>:p')),':h').'/gutentags-cache'
-let g:gutentags_cache_dir = s:cache_dir
-
-let g:gutentags_generate_on_new = 1
-let g:gutentags_generate_on_missing = 1
-let g:gutentags_generate_on_write = 1
-let g:gutentags_generate_on_empty_buffer = 0
+"if ! filereadable(s:rocq_ctag_opts)
+"    echom "Can't read rocq ctag"
+"endif
+"
+"let g:gutentags_ctags_options_file = s:rocq_ctag_opts
+""let g:gutentags_trace = 0
+""
+"let g:gutentags_ctags_exclude = ["_opam"]
+"
+"" I feel like these pre files are being read multiple times. Why?
+"
+"if ! filereadable(s:stdlibtags)
+"    let s:cmd = "find '". s:rocq_lib. "' -name '*.v' | ctags -L - -f '". s:stdlibtags ."' --options='". s:rocq_ctag_opts ."'"
+"    call system(s:cmd)
+"endif
+"
+"execute 'set tags+='.s:stdlibtags
+"" Use ctrl-] to go to definition
+"
+"let s:cache_dir = fnamemodify(resolve(expand('<sfile>:p')),':h').'/gutentags-cache'
+"let g:gutentags_cache_dir = s:cache_dir
+"
+"let g:gutentags_generate_on_new = 1
+"let g:gutentags_generate_on_missing = 1
+"let g:gutentags_generate_on_write = 1
+"let g:gutentags_generate_on_empty_buffer = 0

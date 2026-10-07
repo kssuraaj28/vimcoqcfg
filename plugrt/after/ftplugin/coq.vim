@@ -27,7 +27,6 @@ nnoremap <buffer> <leader>:           <Cmd>!dune build<CR><Cmd>RocqToTop<CR><Cmd
 nnoremap <buffer> <leader>x           <Cmd>RocqInterrupt<CR>
 nnoremap <buffer> <leader><space>     <Cmd>call <SID>CoqRestore()<CR>
 
-
 " Folds.
 " set foldmethod to see what foldmethod is used. Usually manual
 "
