@@ -1,6 +1,6 @@
 " This file is sourced everytime you call set filetype=coq because it is in
 " ftplugin/coq/... 
-" coq_*.vim, coq.vim, coq/*.vim are all sourced
+" coq_*.vim, coq.vim, coq/*.vim are all sourced. See :h ftplugin-name
 
 function s:CoqCopyInfo()
     let l:info_bufname = b:coqtail_panel_bufs.info
