@@ -1,4 +1,4 @@
-Plug 'whonore/Coqtail'
+Plug 'kssuraaj28/Coqtail'
 Plug 'andymass/vim-matchup'
 Plug 'tpope/vim-endwise' 
 "endwise triggers at end of file..
