@@ -19,7 +19,8 @@ local function mirror_coro(chill, is_goal)
   local function tgt_buf()
     local cmd = ('return %s'):format(is_goal and 'RocqGoalBuf' or 'RocqInfoBuf')
     while true do chill()
-      local ret = vim.rpcrequest(rpcch, 'nvim_exec_lua', cmd, {})
+      local ok, ret = pcall(vim.rpcrequest,rpcch, 'nvim_exec_lua', cmd, {})
+      if not ok then vim.cmd("qa!") end
       if ret ~= vim.NIL then return ret end
     end
   end
