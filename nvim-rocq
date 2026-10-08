@@ -12,6 +12,12 @@ if [[ -z "$TMUX" ]]; then
     echo "Not in tmux"
     exit 1
 fi
-tmux split-window -hd -l '70%' -e "EXTRA_VIMRCD=$vimrclist" nvim --listen "$skt"
-tmux split-window -vd -e "EXTRA_VIMRCD=$vimrclist" nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_info()'
-EXTRA_VIMRCD="$vimrclist" exec nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_goal()'
+# -P prints info about the new pane; -F '#{pane_id}' makes that info just its id
+main=$(tmux split-window -hdP -F '#{pane_id}' -l '70%' -e "EXTRA_VIMRCD=$vimrclist" nvim --listen "$skt")
+tmux split-window -vd -e "EXTRA_VIMRCD=$vimrclist" \
+    nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_info()'
+
+tmux select-pane -t "$main"
+
+# This still runs on the old pane! Weird
+EXTRA_VIMRCD="$vimrclist" nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_goal()'
