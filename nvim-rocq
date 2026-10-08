@@ -8,6 +8,10 @@ vimrclist="$EXTRA_VIMRCD:$vimrc_dir"
 
 skt=$(mktemp)
  
+if [[ -z "$TMUX" ]]; then
+    echo "Not in tmux"
+    exit 1
+fi
 tmux split-window -hd -l '70%' -e "EXTRA_VIMRCD=$vimrclist" nvim --listen "$skt"
 tmux split-window -vd -e "EXTRA_VIMRCD=$vimrclist" nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_info()'
 EXTRA_VIMRCD="$vimrclist" exec nvim -c 'lua M = require("rocq_client"); M.set_remote("'"$skt"'"); M.mirror_goal()'
